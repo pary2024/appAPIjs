@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+        .card{
+            height: 400px;
+            width: 350px;
+            /* border: 1px solid black; */
+            background: linear-gradient(10deg , #0096c7,#48cae4,#90e0ef,#ade8f4);
+            border-radius: 10px;
+
+        }
+        .search{
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .search input{
+            height: 30px;
+            width: 200px;
+            border: 0;
+            outline: 0;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .search button{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: none;
+           
+        }
+        .search img{
+            height: 100%;
+            border-radius: 50%;
+        }
+        .weather{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            
+
+        }
+        .weather .icon{
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            border-radius: 20px;
+
+        }
+        .detail{
+            height: 50px;
+            width: 100%;
+            display: flex;
+            /* align-items: center; */
+            justify-content: space-around;
+            margin-top: 25px;
+        }
+        .col img{
+            height:40px;
+            width: 40px;
+            border-radius: 20px;
+        }
+        .col p{
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" class="input" placeholder="Enter your country">
+            <button><img src="search.png" alt=""></button>
+        </div>
+        <div class="weather">
+            <img src="sunny.png" alt="" class="icon">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New York</h2>
+            <div class="detail">
+                <div class="col">
+                    <img src="data:image/png;base64,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" alt="">
+                    <p class="humidity">50%</p>
+                    <p>humidity</p>
+                </div>
+                <div class="col">
+                    <img src="data:image/png;base64,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" alt="">
+                    <p class="wind">15 km/h</p>
+                    <p>wind speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const PAIkey = '0183b3ea884eb15a845e46ec8032a4ec';
+    const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const citys = document.querySelector('.city');
+    const teemp = document.querySelector('.temp');
+    const humidity = document.querySelector('.humidity');
+    const wind    = document.querySelector('.wind');
+    const searchVal = document.querySelector('.search input');
+    const searchBtn = document.querySelector('.search button');
+    const icon = document.querySelector('.icon');
+
+const checkWeather = async (city) => {
+    const response = await fetch(apiurl + city+ `&appid=${PAIkey}`
+        
+        );
+    let data = await response.json();
+    console.log(data);
+    teemp.innerHTML =Math.round(data.main.temp) +"°c";
+    citys.innerHTML =data.name;
+    humidity.innerHTML = data.main.humidity+"%";
+    wind.innerHTML = data.wind.speed + "km/h";
+    if (data.weather[0].main =="Clouds"){
+        icon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoC2wOR7-PLXaaZUYUO_y1knLcmZTQffva1A&s";
+    }else if(data.weather[0].main =="Rain"){
+        icon.src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSwYdwO9I1CU8VoYE0jD_A0TSee3jcRc7mEA&s";
+    }
+    else if(data.weather[0].main =="Drizzle"){
+        icon.src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_JhsDquWT9WqbEd5llmrh5JgumjKjBv6EQ&s";
+    }
+
+   
+   
+   
+
+};
+searchBtn.addEventListener('click',()=>{
+    const city = searchVal.value.trim();
+    if (city){
+
+        checkWeather(city);
+    }
+    
+})
+</script>
+</html>
